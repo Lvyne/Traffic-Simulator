@@ -36,6 +36,7 @@ public class ScanCar {
     private void checkSameCar(int newID) {
         if (oldID != newID) {
             if (true) {//少车和多车的判定条件
+                int shabi = 2;
                 carCount++;
             }
         }
