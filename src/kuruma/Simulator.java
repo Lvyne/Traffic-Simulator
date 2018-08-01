@@ -12,6 +12,8 @@ public class Simulator {
     double total_car_num;
     car carman;
 
+    ScanCar scancar1 = new ScanCar (5,100);
+
     public int[][] rule1(int[][] cell, double p, int v_max, car car, int time) {
         int[][] new_cell = new int[4][cell[0].length];
 
@@ -165,7 +167,9 @@ public class Simulator {
         lane laneclass = new lane();
         lane = laneclass.init_cell(lane, total_car_num_g,total_car_num_a, carman);//道路の車配置決定メソッド
 
+        //主循环
         for (int t = 0; t <= (int) sim_time; t++) {
+            scancar1.scan(lane[3][scancar1.getPosition()]);//调用scancar1的scan方法,并且插入位置参数
             if (t == 0) {//初期配置出力
                 if (disp) option.simetime(t, lane);
             } else {
